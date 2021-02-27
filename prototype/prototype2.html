@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person() {}
+      // 原型上的name属性
+      Person.prototype.name = "Tony";
+
+      const p = new Person();
+      // 设置实例上的name属性
+      p.name = "Jack";
+      console.log("实例上的name：", p.name);
+
+      // 删除实例上的name属性
+      console.log("删除实例上的name================");
+      delete p.name;
+      console.log("原型上的name: ", p.name);
+
+      // 实例与原型
+      // 如果找不到实例的属性，会查找对象关联的原型中的属性，如果原型中也找不到，就找原型的原型，直到最顶层为止
+      // p.name 如果没有  查找  p.__proto__.name(Person.prototype.name)  如果也没有，继续向上查找
+
+      // 原型的原型
+      // Person.prototype.__proto__   =>    Object.prototype
+
+
+      // 原型链
+
+
+
+      // 注意点
+      // constructor是属性，实例上并没有constructor属性，原型上才有  p.constructor === Person.prototype.constructor
+
+      // __proto__
+      // 非标准方法访问原型，相当于getter/setter，当使用obj.__proto__，相当于 Object.getPrototypeOf(obj)
+
+      // 不是真的继承
+      // 原型继承不是真的继承，继承意味着复制操作，原型继承只是在两个对象之间建立一个关联，一个对象就可以通过委托访问另一个对象的属性和函数
+      // 叫委托反而更合适准确
+    </script>
+  </body>
+</html>

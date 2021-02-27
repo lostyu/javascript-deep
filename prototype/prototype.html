@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(){
+
+    }
+    const p = new Person();
+    
+    console.log('实例原型:', Person.prototype);
+    console.log('实例:', p);
+    console.log('实例的实例原型__proto__:', p.__proto__);
+    console.log('Person.prototype === p.__proto__', Person.prototype === p.__proto__);
+    console.log('实例原型Person.prototype的constructor指向构造函数:', Person.prototype.constructor);
+
+    // 获取对象的原型Object.getPrototypeOf(person)
+    console.log(Object.getPrototypeOf(p))
+
+    // Person构造函数   -> prototype    ->  实例原型Person.prototype    -> 原型的原型(上一层)   ->  Person.prototype.__proto__   ->  Object.prototype 
+    // Person构造函数   -> 实例         ->  __proto__   ->  实例原型Person.prototype
+    // 实例原型Person.prototype   ->    constructor   ->    Person构造函数
+
+
+  </script>
+</body>
+</html>
